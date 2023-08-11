@@ -1,0 +1,94 @@
+.itemBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 10px;
+    /* overflow: hidden; */
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #aaa;
+    padding: 12px;
+    transition: .1s;
+}
+
+.itemBox:hover {
+    background-color: #f5f5f5;
+}
+
+.itemBox:active {
+    background-color: #f1f1f1;
+    transform: scale(1.1);
+
+}
+
+.itemBox .header {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.itemBox .icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    margin-right: 15px;
+}
+
+.itemBox .qsled {
+    background-color: yellowgreen !important;
+}
+
+.itemBox .callsign {
+    margin: 0;
+}
+
+.itemBox .time {
+    color: #666;
+}
+
+.itemBox .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.itemBox .footer span {
+    color: #666;
+    font-size: 14px;
+}
+
+.itemBox .qsl {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-weight: bolder;
+    color: #3fb480;
+    font-style: italic;
+    font-size: 24px;
+    width: 70px;
+    height: 70px;
+}
+.itemBox .qsl img{
+    width: 100%;
+    transform: rotate(-20deg);
+}
+.itemBox .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.itemBox .location {
+    color: #3fb480;
+    font-weight: bold;
+    font-style: italic;
+}

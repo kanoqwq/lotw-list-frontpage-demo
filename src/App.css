@@ -1,0 +1,104 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #999;
+}
+
+td,
+th {
+    border: 1px dashed #999;
+    padding: 5px 10px;
+}
+
+tr:nth-child(2n+1) {
+    background-color: snow;
+}
+
+tr:nth-child(2n) {
+    background-color: aliceblue;
+}
+
+thead tr {
+    background-color: azure !important;
+
+}
+
+tr {
+    transition: .1s;
+}
+
+tbody tr:hover {
+    background-color: #999;
+}
+
+.btn {
+    margin: 5px;
+    border-radius: 8px;
+    background-color: #259DD9;
+    padding: 8px 14px;
+    border: none;
+    color: #fff;
+    transition: .1s;
+}
+
+.btn:active {
+    background-color: #2576d9 !important;
+
+}
+
+.btn:hover {
+    background-color: #2582d9;
+}
+
+.App p {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.options {
+    display: flex;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.options .btn {
+    margin-left: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.App {
+    margin: 0 auto;
+}
+
+.listContent {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.loading img{
+    width: 100%;
+}
+@media (min-width:750px) {
+    .App {
+        width: 750px;
+    }
+}
+
+@media (max-width:680px) {
+    .listContent {
+        grid-template-columns: 100%;
+
+    }
+}
