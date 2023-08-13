@@ -1,7 +1,9 @@
 body,
 html {
+    overflow: auto;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 table {
@@ -87,9 +89,16 @@ h2 {
     grid-template-columns: 50% 50%;
 }
 
-.loading img{
+.loading img {
     width: 100%;
 }
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (min-width:750px) {
     .App {
         width: 750px;

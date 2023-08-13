@@ -1,0 +1,47 @@
+.modal {
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+    max-height: 500px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    opacity: 0;
+    width: 0;
+    transition: all .4s;
+}
+
+.show {
+    width: 80%;
+    opacity: 1
+}
+
+.modal h3 {
+    margin: 0;
+}
+
+.modal h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.content {
+    color: peru;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.loading img {
+    width: 200px;
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+}

@@ -1,9 +1,9 @@
 import classes from "./Item.module.css";
-export default function Item({ item }) {
+export default function Item({ item, onClick }) {
   return (
     <>
       {item && (
-        <div className={classes.itemBox}>
+        <div className={classes.itemBox} onClick={onClick}>
           <div className={classes.header}>
             <div className={`${classes.icon} ${item.QSL ? classes.qsled : ""}`}>
               <span>{item.worked.substr(3, 3)}</span>
