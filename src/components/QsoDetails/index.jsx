@@ -37,7 +37,7 @@ export default function QsoDetails(props) {
       setIsLoading(false);
     }
     setModalShow(true);
-  }, [props.qsoDetail, modalShow, setModalShow]);
+  }, [props.qsoDetail]);
   return (
     <div
       style={{
