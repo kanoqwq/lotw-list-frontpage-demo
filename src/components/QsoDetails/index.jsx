@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./QsoDetails.module.css";
 import configs from "../../configs/config";
-import loadingImg2 from '../../assets/images/loading2.gif'
+import loadingImg2 from "../../assets/images/loading2.gif";
 export default function QsoDetails(props) {
   const info = props.qsoDetail;
   const [errMsg, setErrMsg] = useState(null);
@@ -112,7 +112,7 @@ export default function QsoDetails(props) {
                 Band: <span className={classes.content}>{info.band}</span>
               </p>
               <p>
-                {info.QSRecordId ? "QSL" : "QSO"} Date:
+                {info.QSRecordId && info.QSL !== "" ? "QSL" : "QSO"} Date:
                 <span className={classes.content}> {info.datetime}</span>
               </p>
               <button
