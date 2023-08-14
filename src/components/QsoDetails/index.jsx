@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./QsoDetails.module.css";
 import configs from "../../configs/config";
 import loadingImg2 from "../../assets/images/loading2.gif";
+import watermark from "../../assets/images/wartermark.png";
 export default function QsoDetails(props) {
   const info = props.qsoDetail;
   const [errMsg, setErrMsg] = useState(null);
@@ -39,6 +40,16 @@ export default function QsoDetails(props) {
   }, [props.qsoDetail, modalShow, setModalShow]);
   return (
     <div
+      style={{
+        backgroundImage: `${
+          !isLoading && info.QSL && info.QSRecordId
+            ? "url(" + watermark + ")"
+            : "none"
+        }`,
+        backgroundSize: "340px",
+        backgroundPosition: "right top",
+        backgroundRepeat: "no-repeat",
+      }}
       className={`${classes.modal}${modalShow ? " " + classes.show : ""}`}
       onClick={props.onClick}
     >
@@ -110,6 +121,12 @@ export default function QsoDetails(props) {
               </p>
               <p>
                 Band: <span className={classes.content}>{info.band}</span>
+              </p>
+              <p>
+                IS QSL:{" "}
+                <span className={classes.content}>
+                  {info.QSL ? "Yes" : "No"}
+                </span>
               </p>
               <p>
                 {info.QSRecordId && info.QSL !== "" ? "QSL" : "QSO"} Date:
