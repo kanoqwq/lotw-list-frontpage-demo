@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./QsoDetails.module.css";
-
+import configs from "../../configs/config";
+import loadingImg2 from '../../assets/images/loading2.gif'
 export default function QsoDetails(props) {
   const info = props.qsoDetail;
   const [errMsg, setErrMsg] = useState(null);
@@ -12,7 +13,9 @@ export default function QsoDetails(props) {
       try {
         setIsLoading(true);
         setErrMsg(null);
-        const res = await fetch(`/lotw-get/lotw/qsldetails?qso=${QSRecordId}`);
+        const res = await fetch(
+          `${configs.apiBaseURL}/lotw/qsldetails?qso=${QSRecordId}`
+        );
         if (res && res.ok) {
           let data = await res.json();
           setDetailData(data.data);
@@ -123,7 +126,7 @@ export default function QsoDetails(props) {
         </>
       ) : (
         <div className={classes.loading}>
-          <img src="/img/loading2.gif" alt="" />
+          <img src={loadingImg2} alt="" />
           <p>Fetching from LotW...</p>
         </div>
       )}

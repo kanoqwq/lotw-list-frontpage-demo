@@ -3,11 +3,11 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = (app) => {
     app.use(createProxyMiddleware(
-        '/lotw-get', {
+        '/lotw-api', {
         // Modify your api server proxy there
         target: 'http://localhost:4545',
         changeOrigin: true,
-        pathRewrite: { '^/lotw-get': '' }
+        pathRewrite: { '^/lotw-api': '' }
     }
     ))
 }

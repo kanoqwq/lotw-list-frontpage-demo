@@ -1,4 +1,5 @@
 import classes from "./Item.module.css";
+import QSLIcon from "../../assets/images/徽章.png";
 export default function Item({ item, onClick }) {
   return (
     <>
@@ -22,7 +23,7 @@ export default function Item({ item, onClick }) {
           {/* <div className={classes.qsl}>{item.QSL && "QSL"}</div> */}
           {item.QSL ? (
             <div className={classes.qsl}>
-              <img src="/img/徽章.png" alt="" />
+              <img src={QSLIcon} alt="" />
             </div>
           ) : (
             <></>

@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import List from "./components/List/List";
 import ListContext from "./store/studentContext";
 import useFetch from "./components/hooks/useFetch";
+import { throttleAsync } from "./tools/throttleAsync";
+import configs from "./configs/config";
+import loadingGif from "./assets/images/loading.gif";
 function App() {
   //使用自定义钩子
   const {
@@ -17,21 +20,27 @@ function App() {
   useEffect(() => {
     getData({
       // modify there
-      url: "/lotw-get/lotw",
+      url: configs.apiBaseURL + "/lotw",
     });
   }, [getData]);
-  const getDataHandler = () => {
-    getData({
-      // modify there
-      url: "/lotw-get/lotw",
+  const getDataHandler = throttleAsync((e) => {
+    // modify there
+    let url = configs.apiBaseURL + "/lotw";
+    //no cache
+    if (e.shiftKey && e.altKey) {
+      url += "?cache=no-cache";
+    }
+    return getData({
+      url,
     });
-  };
+  });
+
   const getQSLHandler = () => {
     setIsFilter(!isFilter);
   };
   const saveQSLHandler = async () => {
     // modify there
-    window.open("/lotw-get/downloadfile", "_blank");
+    window.open(configs.apiBaseURL + "/lotw/downloadfile", "_blank");
   };
   return (
     <div className="App">
@@ -58,7 +67,7 @@ function App() {
         {errMsg && <p>{errMsg}</p>}
         {isLoading && (
           <p className="loading">
-            <img src="/img/loading.gif" alt="" />
+            <img src={loadingGif} alt="" />
           </p>
         )}
         <div className="listContent">
