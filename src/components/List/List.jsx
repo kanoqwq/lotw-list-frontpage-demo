@@ -25,7 +25,7 @@ export default function List({ data }) {
           ></Item>
         ))
       ) : (
-        <h4>NO DATA</h4>
+        <h4 style={{ textAlign: "center" }}>No data, Please refresh again</h4>
       )}
       {isShow ? (
         <Backdrop className="flex-center" onClick={hideDetailsHandler}>
