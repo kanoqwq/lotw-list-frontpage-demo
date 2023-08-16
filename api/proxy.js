@@ -4,7 +4,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
 module.exports = (req, res) => {
     let target = ''
 
-    if (req.url.startsWith('/api')) {
+    if (req.url.startsWith('/lotw-api')) {
         // 这里填目标地址
         target = 'https://api.kanokano.cn/lotw-api'
     }
@@ -13,7 +13,7 @@ module.exports = (req, res) => {
         target,
         changeOrigin: true,
         pathRewrite: {
-            '^/api/': '/'
+            '^/lotw-api/': '/'
         }
     })(req, res)
 }
