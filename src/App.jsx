@@ -17,6 +17,7 @@ function App() {
     dataAction: getData,
   } = useFetch();
   const [isFilter, setIsFilter] = useState(false);
+  const [timer, setTimer] = useState(null);
   useEffect(() => {
     getData({
       // modify there
@@ -42,6 +43,26 @@ function App() {
     // modify there
     window.open(configs.apiBaseURL + "/lotw/downloadfile", "_blank");
   };
+  const longPressHandler = (e) => {
+    let url = configs.apiBaseURL + "/lotw?cache=no-cache";
+    e.target.innerHTML = "Forceload";
+    return getData({
+      url,
+    });
+  };
+  const touchstartHandler = (e) => {
+    e.target.style.userSelect = "none";
+    timer && clearTimeout(timer);
+    setTimer(
+      setTimeout(() => {
+        longPressHandler(e);
+      }, 800)
+    );
+  };
+  const touchCancleHandler = (e) => {
+    e.target.innerHTML = "Refresh";
+    timer && clearTimeout(timer);
+  };
   return (
     <div className="App">
       <ListContext.Provider
@@ -54,7 +75,17 @@ function App() {
           Total QSO: {data.length}, Total QSL: {qslCount}
         </p>
         <div className="options">
-          <button className="btn" onClick={getDataHandler}>
+          <button
+            className="btn"
+            onClick={getDataHandler}
+            onTouchStart={touchstartHandler}
+            onTouchEnd={touchCancleHandler}
+            onTouchMove={touchCancleHandler}
+            onTouchCancel={touchCancleHandler}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
+          >
             Refresh
           </button>
           <button className="btn" onClick={getQSLHandler}>
