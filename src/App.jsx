@@ -10,6 +10,8 @@ function App() {
   //使用自定义钩子
   const {
     data,
+    vuccData,
+    fetchVuccData,
     isLoading,
     errMsg,
     filteredData,
@@ -22,18 +24,35 @@ function App() {
     getData({
       // modify there
       url: configs.apiBaseURL + "/lotw",
+    }).then(() => {
+      fetchVuccData({
+        // modify there
+        url: configs.apiBaseURL + "/lotw/vuccaward",
+      });
     });
-  }, [getData]);
+  }, [getData, fetchVuccData]);
+
   const getDataHandler = throttleAsync((e) => {
-    // modify there
-    let url = configs.apiBaseURL + "/lotw";
-    //no cache
-    if (e.shiftKey && e.altKey) {
-      url += "?cache=no-cache";
+    if (!isLoading) {
+      // modify there
+      let url = configs.apiBaseURL + "/lotw";
+      let url2 = configs.apiBaseURL + "/lotw/vuccaward";
+      //no cache
+      if (e.shiftKey && e.altKey) {
+        url += "?cache=no-cache";
+        url2 += "?cache=no-cache";
+      }
+      return getData({
+        url,
+      }).then(() => {
+        fetchVuccData({
+          // modify there
+          url: url2,
+        });
+      });
+    } else {
+      return new Promise(() => {});
     }
-    return getData({
-      url,
-    });
   });
 
   const getQSLHandler = () => {
@@ -70,10 +89,16 @@ function App() {
           getData: getDataHandler,
         }}
       >
-        <h2>{data.length ? data[0].callsign : ""}'s LotW QSO Logs</h2>
+        <h2>{data.length ? data[0].callsign + "'s " : ""}LotW QSO Logs</h2>
         <p>
-          Total QSO: {data.length}, Total QSL: {qslCount}
+          QSO: <b>{data.length}</b> | QSL: <b>{qslCount}</b>
         </p>
+        <p>
+          VUCC144: <b>{vuccData.vucc144}</b> | VUCC432:{" "}
+          <b>{vuccData.vucc432}</b> | VUCC Satelite:{" "}
+          <b>{vuccData.vuccSatellite}</b>
+        </p>
+
         <div className="options">
           <button
             className="btn"
@@ -85,6 +110,7 @@ function App() {
             onContextMenu={(e) => {
               e.preventDefault();
             }}
+            disabled={isLoading}
           >
             Refresh
           </button>
