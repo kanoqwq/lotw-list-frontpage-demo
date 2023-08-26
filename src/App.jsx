@@ -134,13 +134,17 @@ function App() {
           >
             Refresh
           </button>
-          <button className="btn" onClick={getQSLHandler}>
+          <button disabled={isLoading} className="btn" onClick={getQSLHandler}>
             {isFilter ? "Show all" : "Only QSL"}
           </button>
-          <button className="btn" onClick={toggleLeaderboard}>
+          <button
+            disabled={isLoading}
+            className="btn"
+            onClick={toggleLeaderboard}
+          >
             Leaderboard
           </button>
-          <button className="btn" onClick={saveQSLHandler}>
+          <button disabled={isLoading} className="btn" onClick={saveQSLHandler}>
             Save to .xlsx File
           </button>
         </div>
