@@ -101,7 +101,11 @@ function App() {
             setIsShowLeaderboard(false);
           }}
         >
-          <Leaderboard callsignCount={mostQslCallSign}></Leaderboard>
+          <Leaderboard
+            onClose={() => setIsShowLeaderboard(false)}
+            onClick={(e) => e.stopPropagation()}
+            callsignCount={mostQslCallSign}
+          ></Leaderboard>
         </Backdrop>
       )}
       <ListContext.Provider

@@ -14,8 +14,16 @@ export default function Leaderboard(props) {
     setIsShow(true);
   }, [setIsShow]);
   return (
-    <div className={`${classes.modal}${isShow ? " " + classes.show : ""}`}>
-      <h3>Leaderboard</h3>
+    <div
+      onClick={props.onClick}
+      className={`${classes.modal}${isShow ? " " + classes.show : ""}`}
+    >
+      <div className={classes.header}>
+        <h3>Leaderboard</h3>
+        <button className="btn" onClick={props.onClose}>
+          Close
+        </button>
+      </div>
       <hr />
       <p>
         <b>Most Worked: {mostWorked} </b>for{" "}
