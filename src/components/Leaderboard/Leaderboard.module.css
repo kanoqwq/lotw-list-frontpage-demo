@@ -1,0 +1,56 @@
+.modal {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 500px;
+    max-width: 500px;
+    opacity: 0;
+    width: 0;
+    transition: all .4s;
+
+}
+
+.show {
+    opacity: 1;
+    width: 80%;
+}
+
+.leaderboard {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-auto-rows: auto;
+    position: relative;
+    overflow: auto;
+    max-height: 500px;
+}
+
+.item {
+    margin: 10px;
+    margin-left: 0;
+    white-space: nowrap;
+}
+
+.number {
+    font-weight: bold;
+    color: #FB4923;
+}
+
+h3 {
+    margin: 0;
+}
+
+@media (max-width:680px) {
+    .leaderboard {
+        grid-template-columns: 33% 33% 33%;
+
+    }
+}
+
+@media (max-width:420px) {
+    .leaderboard {
+        grid-template-columns: 50% 50%;
+
+    }
+}

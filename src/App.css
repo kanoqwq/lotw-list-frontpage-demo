@@ -99,6 +99,12 @@ h2 {
     align-items: center;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (min-width:750px) {
     .App {
         width: 750px;

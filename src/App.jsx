@@ -6,6 +6,8 @@ import useFetch from "./components/hooks/useFetch";
 import { throttleAsync } from "./tools/throttleAsync";
 import configs from "./configs/config";
 import loadingGif from "./assets/images/loading.gif";
+import Backdrop from "./components/UI/Backdrop/Backdrop";
+import Leaderboard from "./components/Leaderboard/Leaderboard";
 function App() {
   //使用自定义钩子
   const {
@@ -16,9 +18,11 @@ function App() {
     errMsg,
     filteredData,
     qslCount,
+    mostQslCallSign,
     dataAction: getData,
   } = useFetch();
   const [isFilter, setIsFilter] = useState(false);
+  const [isShowLeaderboard, setIsShowLeaderboard] = useState(false);
   const [timer, setTimer] = useState(null);
   useEffect(() => {
     getData({
@@ -78,12 +82,28 @@ function App() {
       }, 800)
     );
   };
+
   const touchCancleHandler = (e) => {
     e.target.innerHTML = "Refresh";
     timer && clearTimeout(timer);
   };
+
+  const toggleLeaderboard = () => {
+    // console.log(mostQslCallSign);
+    setIsShowLeaderboard(true);
+  };
   return (
     <div className="App">
+      {isShowLeaderboard && (
+        <Backdrop
+          className="center"
+          onClick={() => {
+            setIsShowLeaderboard(false);
+          }}
+        >
+          <Leaderboard callsignCount={mostQslCallSign}></Leaderboard>
+        </Backdrop>
+      )}
       <ListContext.Provider
         value={{
           getData: getDataHandler,
@@ -116,6 +136,9 @@ function App() {
           </button>
           <button className="btn" onClick={getQSLHandler}>
             {isFilter ? "Show all" : "Only QSL"}
+          </button>
+          <button className="btn" onClick={toggleLeaderboard}>
+            Leaderboard
           </button>
           <button className="btn" onClick={saveQSLHandler}>
             Save to .xlsx File
