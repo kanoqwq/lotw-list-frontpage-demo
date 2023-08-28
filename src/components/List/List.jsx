@@ -28,7 +28,9 @@ export default function List({ data }) {
 
   const filterByCallsign = (data) => {
     setFilteredData(
-      data.filter((item) => item.worked === searchCallSign.toUpperCase())
+      data.filter(
+        (item) => item.worked.indexOf(searchCallSign.toUpperCase()) !== -1
+      )
     );
     return;
   };
@@ -93,7 +95,7 @@ export default function List({ data }) {
         </div>
       </div>
       <div className="listContent">
-        {data.length !== 0 ? (
+        {filteredData.length !== 0 ? (
           filteredData.map((item, index) => {
             return (
               <Item
@@ -106,7 +108,7 @@ export default function List({ data }) {
             );
           })
         ) : (
-          <h4 style={{ textAlign: "center" }}>No data, Please refresh again</h4>
+          <h4 style={{ textAlign: "center" }}>No data</h4>
         )}
         {isShow ? (
           <Backdrop className="flex-center" onClick={hideDetailsHandler}>
