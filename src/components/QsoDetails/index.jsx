@@ -61,67 +61,96 @@ export default function QsoDetails(props) {
             <>
               <h3>Details</h3>
               {detailData ? (
-                <div>
-                  <p>
-                    Call Sign:{" "}
-                    <span className={classes.content}>
-                      {detailData.callSign}
-                    </span>
-                  </p>
-                  <p>
-                    CQ Zone:{" "}
-                    <span className={classes.content}>{detailData.cqZone}</span>
-                  </p>
-                  <p>
-                    ITU Zone:{" "}
-                    <span className={classes.content}>
-                      {detailData.ITUZone}
-                    </span>
-                  </p>
-                  <p>
-                    GRID:{" "}
-                    <span className={classes.content}>{detailData.grid}</span>
-                  </p>
-                  <p>
-                    Province:{" "}
-                    <span className={classes.content}>
-                      {detailData.province}
-                    </span>
-                  </p>
-                  <p>
-                    Satellite:{" "}
-                    <span className={classes.content}>
-                      {detailData.satellite}
-                    </span>
-                  </p>
-                  <p>
-                    My GRID:{" "}
-                    <span className={classes.content}>{detailData.myGrid}</span>
-                  </p>
-                  <p>
-                    My Province:{" "}
-                    <span className={classes.content}>
-                      {detailData.myProvince}
-                    </span>
-                  </p>
-                </div>
+                <>
+                  {detailData.callSign && (
+                    <p>
+                      Call Sign:{" "}
+                      <span className={classes.content}>
+                        {detailData.callSign}
+                      </span>
+                    </p>
+                  )}
+                  {detailData.cqZone && (
+                    <p>
+                      CQ Zone:{" "}
+                      <span className={classes.content}>
+                        {detailData.cqZone}
+                      </span>
+                    </p>
+                  )}
+                  {detailData.ITUZone && (
+                    <p>
+                      ITU Zone:{" "}
+                      <span className={classes.content}>
+                        {detailData.ITUZone}
+                      </span>
+                    </p>
+                  )}
+                  {detailData.grid && (
+                    <p>
+                      GRID:{" "}
+                      <span className={classes.content}>{detailData.grid}</span>
+                    </p>
+                  )}
+                  {detailData.province && (
+                    <p>
+                      Province:{" "}
+                      <span className={classes.content}>
+                        {detailData.province}
+                      </span>
+                    </p>
+                  )}
+                  {detailData.satellite && (
+                    <p>
+                      Satellite:{" "}
+                      <span className={classes.content}>
+                        {detailData.satellite}
+                      </span>
+                    </p>
+                  )}
+                  {detailData.myGrid && (
+                    <p>
+                      My GRID:{" "}
+                      <span className={classes.content}>
+                        {detailData.myGrid}
+                      </span>
+                    </p>
+                  )}
+                  {detailData.myProvince && (
+                    <p>
+                      My Province:{" "}
+                      <span className={classes.content}>
+                        {detailData.myProvince}
+                      </span>
+                    </p>
+                  )}
+                </>
               ) : (
                 <div>
-                  <p>
-                    Call Sign:{" "}
-                    <span className={classes.content}>{info.worked}</span>
-                  </p>
+                  {info.worked && (
+                    <p>
+                      Call Sign:{" "}
+                      <span className={classes.content}>{info.worked}</span>
+                    </p>
+                  )}
                 </div>
               )}
-              <p>
-                Frequency: <span className={classes.content}>{info.freq}</span>
-              </p>
-              <p>
-                Mode: <span className={classes.content}>{info.mode}</span>
-              </p>
-              <p>
-                Band: <span className={classes.content}>{info.band}</span>
-              </p>
+              {info.freq && (
+                <p>
+                  Frequency:{" "}
+                  <span className={classes.content}>{info.freq}</span>
+                </p>
+              )}
+              {info.mode && (
+                <p>
+                  Mode: <span className={classes.content}>{info.mode}</span>
+                </p>
+              )}
+              {info.band && (
+                <p>
+                  Band: <span className={classes.content}>{info.band}</span>
+                </p>
+              )}
               <p>
                 IS QSL:{" "}
                 <span className={classes.content}>

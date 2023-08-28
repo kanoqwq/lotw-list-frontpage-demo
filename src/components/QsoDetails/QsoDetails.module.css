@@ -2,8 +2,9 @@
     position: relative;
     overflow: hidden;
     max-width: 800px;
-    max-height: 500px;
-    background-color: #fff;
+    /* max-height: 500px; */
+    background-color: #ffffff95;
+    backdrop-filter: blur(11px);
     border-radius: 8px;
     padding: 20px;
     opacity: 0;
@@ -18,6 +19,7 @@
 
 .modal h3 {
     margin: 0;
+    font-size: 26px;
 }
 
 .modal h2 {

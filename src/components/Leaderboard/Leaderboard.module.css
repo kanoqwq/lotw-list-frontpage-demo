@@ -8,7 +8,8 @@
     opacity: 0;
     width: 0;
     transition: all .4s;
-
+    background-color: #ffffff95;
+    backdrop-filter: blur(11px);
 }
 
 .show {
@@ -44,6 +45,7 @@
 
 h3 {
     margin: 0;
+    font-size: 26px;
 }
 
 @media (max-width:680px) {

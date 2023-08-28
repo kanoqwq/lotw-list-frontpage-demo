@@ -58,6 +58,10 @@ tbody tr:hover {
     background-color: #2582d9;
 }
 
+.App {
+    padding-top: 10px;
+}
+
 .App p {
     text-align: center;
     margin: 5px 0;
@@ -78,6 +82,7 @@ tbody tr:hover {
 
 h2 {
     text-align: center;
+    margin: 0;
 }
 
 .App {
@@ -103,6 +108,16 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer {
+    padding: 10px;
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+    color: rgb(255, 160, 176);
 }
 
 @media (min-width:750px) {

@@ -167,6 +167,12 @@ function App() {
             ))}
         </div>
       </ListContext.Provider>
+      <footer className="footer">
+        Made widh ❤️ by{" "}
+        <a href="https://kanokano.cn" target="blank">
+          MiniKano
+        </a>
+      </footer>
     </div>
   );
 }

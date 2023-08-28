@@ -2,9 +2,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    /* background-color: #fff; */
+    backdrop-filter: blur(11px);
     margin: 10px;
-    /* overflow: hidden; */
     border-radius: 8px;
     box-shadow: 1px 2px 5px #aaa;
     padding: 12px;
@@ -12,11 +12,11 @@
 }
 
 .itemBox:hover {
-    background-color: #f5f5f5;
+    background-color: #f5f5f591;
 }
 
 .itemBox:active {
-    background-color: #f1f1f1;
+    background-color: #f1f1f191;
     transform: scale(1.1);
 
 }
@@ -33,7 +33,7 @@
 .itemBox .icon {
     width: 50px;
     height: 50px;
-    background-color: #ccc;
+    background-color: #cccccc6b;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -43,7 +43,7 @@
 }
 
 .itemBox .qsled {
-    background-color: yellowgreen !important;
+    background-color: #9acd328a!important;
 }
 
 .itemBox .callsign {
