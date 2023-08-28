@@ -92,6 +92,8 @@ h2 {
 .listContent {
     display: grid;
     grid-template-columns: 50% 50%;
+    backdrop-filter: blur(30px);
+    border-radius: 12px;
 }
 
 .loading img {
