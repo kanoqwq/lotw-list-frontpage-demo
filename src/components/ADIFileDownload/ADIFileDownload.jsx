@@ -79,7 +79,7 @@ export default function ADIFileDownload(props) {
       className={`${classes.modal}${isShow ? " " + classes.show : ""}`}
     >
       <div className={classes.header}>
-        <h3>Download AIDF</h3>
+        <h3>Download ADIF</h3>
         <button className="btn" onClick={props.onClose}>
           Close
         </button>
