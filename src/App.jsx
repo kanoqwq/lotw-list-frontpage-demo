@@ -149,7 +149,7 @@ function App() {
             Leaderboard
           </button>
           <button disabled={isLoading} className="btn" onClick={saveQSLHandler}>
-            Save to .xlsx File
+            Save as .xlsx File
           </button>
         </div>
         {errMsg && <p>{errMsg}</p>}
