@@ -8,6 +8,7 @@ import configs from "./configs/config";
 import loadingGif from "./assets/images/loading.gif";
 import Backdrop from "./components/UI/Backdrop/Backdrop";
 import Leaderboard from "./components/Leaderboard/Leaderboard";
+import ADIFileDownload from "./components/ADIFileDownload/ADIFileDownload";
 function App() {
   //使用自定义钩子
   const {
@@ -24,6 +25,9 @@ function App() {
   const [isFilter, setIsFilter] = useState(false);
   const [isShowLeaderboard, setIsShowLeaderboard] = useState(false);
   const [timer, setTimer] = useState(null);
+  const [isShowAdifDownloadDialog, setIsShowAdifDownloadDialog] =
+    useState(false);
+
   useEffect(() => {
     getData({
       // modify there
@@ -62,10 +66,12 @@ function App() {
   const getQSLHandler = () => {
     setIsFilter(!isFilter);
   };
+
   const saveQSLHandler = async () => {
     // modify there
     window.open(configs.apiBaseURL + "/lotw/downloadfile", "_blank");
   };
+
   const longPressHandler = (e) => {
     let url = configs.apiBaseURL + "/lotw?cache=no-cache";
     e.target.innerHTML = "Forceload";
@@ -73,6 +79,7 @@ function App() {
       url,
     });
   };
+
   const touchstartHandler = (e) => {
     e.target.style.userSelect = "none";
     timer && clearTimeout(timer);
@@ -89,11 +96,29 @@ function App() {
   };
 
   const toggleLeaderboard = () => {
-    // console.log(mostQslCallSign);
     setIsShowLeaderboard(true);
   };
+
+  const adifDownloadBtnHandler = () => {
+    setIsShowAdifDownloadDialog(true);
+  };
+
   return (
     <div className="App">
+      {isShowAdifDownloadDialog && (
+        <Backdrop
+          className="center"
+          onClick={() => {
+            setIsShowAdifDownloadDialog(false);
+          }}
+        >
+          <ADIFileDownload
+            onClose={() => setIsShowAdifDownloadDialog(false)}
+            onClick={(e) => e.stopPropagation()}
+          ></ADIFileDownload>
+        </Backdrop>
+      )}
+
       {isShowLeaderboard && (
         <Backdrop
           className="center"
@@ -150,6 +175,13 @@ function App() {
           </button>
           <button disabled={isLoading} className="btn" onClick={saveQSLHandler}>
             Save as .xlsx File
+          </button>
+          <button
+            disabled={isLoading}
+            className="btn"
+            onClick={adifDownloadBtnHandler}
+          >
+            Download ADIF
           </button>
         </div>
         {errMsg && <p>{errMsg}</p>}

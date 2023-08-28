@@ -1,0 +1,71 @@
+.modal {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    opacity: 0;
+    width: 0;
+    transition: all .4s;
+    background-color: #ffffff95;
+    backdrop-filter: blur(11px);
+}
+
+.show {
+    opacity: 1;
+    width: 80%;
+}
+
+.content .item {
+    margin: 10px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.info {
+    font-weight: bold;
+    margin: 0;
+    padding: 5px;
+    padding-left: 0;
+    color: #FB4923;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+label {
+    color: #333;
+}
+
+.datePicker {
+    background: transparent;
+    border: 2px solid #666;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5px;
+    outline: none;
+    transition: all .2s;
+}
+
+.datePicker:active,
+.datePicker:focus,
+.datePicker:focus-visible {
+    border: 2px solid #259DD9 !important;
+
+}
+
+h3 {
+    margin: 0;
+    font-size: 26px;
+}

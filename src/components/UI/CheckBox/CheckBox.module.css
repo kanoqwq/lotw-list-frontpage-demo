@@ -1,0 +1,30 @@
+.checkbox {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #66666696;
+    transition: all .3s;
+}
+
+.checkbox .dot {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 100%;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    left: 0%;
+    transition: all .3s;
+}
+
+.checkbox .checked {
+    left: 100% !important;
+    transform: translateX(-100%);
+}
+
+.checkedColor {
+    background-color: #98fb9896 !important;
+
+}
