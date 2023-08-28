@@ -56,7 +56,9 @@ export default function List({ data }) {
       filterByDate(data);
     } else if (searchCallSign && searchDateStart && searchDateEnd) {
       filterByDate(
-        data.filter((item) => item.worked === searchCallSign.toUpperCase())
+        data.filter(
+          (item) => item.worked.indexOf(searchCallSign.toUpperCase()) !== -1
+        )
       );
     }
   };
