@@ -6,7 +6,7 @@ const useFetch = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [qslCount, setQSLCount] = useState(0)
     const [vuccData, setVuccData] = useState({})
-    const [filteredData, setFilteredData] = useState(data);
+    const [qlsedData, setQlsedData] = useState(data);
     const [errMsg, setErrMsg] = useState(null);
     // 接口：https://api.kanokano.cn/lotw-get
     // 组件初始化时候需要加载数据：
@@ -59,7 +59,7 @@ const useFetch = () => {
                     }
                 });
                 setMostQslCallSign(QSLCount)
-                setFilteredData(qslData)
+                setQlsedData(qslData)
                 setQSLCount(count);
             } else {
                 throw new Error("Load failed");
@@ -77,7 +77,7 @@ const useFetch = () => {
         data,
         vuccData,
         dataAction,
-        filteredData,
+        qlsedData,
         isLoading,
         errMsg,
         qslCount,

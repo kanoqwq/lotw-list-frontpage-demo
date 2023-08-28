@@ -92,6 +92,26 @@ h2 {
 .listContent {
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.input {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #66666666;
+    transition: all .2s;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.input:active,
+.input:focus,
+.input:focus-visible {
+    border: 2px solid #259DD9 !important;
+}
+
+.contentBox {
     backdrop-filter: blur(30px);
     border-radius: 12px;
 }
@@ -120,6 +140,44 @@ h2 {
 .footer a {
     text-decoration: none;
     color: rgb(255, 160, 176);
+}
+
+.modal {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    opacity: 0;
+    width: 0;
+    transition: all .4s;
+    background-color: #ffffff95;
+    backdrop-filter: blur(11px);
+}
+
+.show {
+    opacity: 1;
+    width: 80%;
+}
+
+.datePicker {
+    background: transparent;
+    border: 2px solid #66666666;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5px;
+    outline: none;
+    min-width: 100px;
+    min-height: 15px;
+    vertical-align: middle;
+    transition: all .2s;
+}
+
+.datePicker:active,
+.datePicker:focus,
+.datePicker:focus-visible {
+    border: 2px solid #259DD9 !important;
 }
 
 @media (min-width:750px) {

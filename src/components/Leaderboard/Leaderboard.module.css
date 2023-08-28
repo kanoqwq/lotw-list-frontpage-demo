@@ -1,22 +1,3 @@
-.modal {
-    position: relative;
-    overflow: hidden;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 500px;
-    opacity: 0;
-    width: 0;
-    transition: all .4s;
-    background-color: #ffffff95;
-    backdrop-filter: blur(11px);
-}
-
-.show {
-    opacity: 1;
-    width: 80%;
-}
-
 .header {
     display: flex;
     justify-content: space-between;

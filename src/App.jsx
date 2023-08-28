@@ -17,12 +17,12 @@ function App() {
     fetchVuccData,
     isLoading,
     errMsg,
-    filteredData,
+    qlsedData,
     qslCount,
     mostQslCallSign,
     dataAction: getData,
   } = useFetch();
-  const [isFilter, setIsFilter] = useState(false);
+  const [isOnlyQsl, setisOnlyQsl] = useState(false);
   const [isShowLeaderboard, setIsShowLeaderboard] = useState(false);
   const [timer, setTimer] = useState(null);
   const [isShowAdifDownloadDialog, setIsShowAdifDownloadDialog] =
@@ -64,7 +64,7 @@ function App() {
   });
 
   const getQSLHandler = () => {
-    setIsFilter(!isFilter);
+    setisOnlyQsl(!isOnlyQsl);
   };
 
   const saveQSLHandler = async () => {
@@ -164,7 +164,7 @@ function App() {
             Refresh
           </button>
           <button disabled={isLoading} className="btn" onClick={getQSLHandler}>
-            {isFilter ? "Show all" : "Only QSL"}
+            {isOnlyQsl ? "Show all" : "Only QSL"}
           </button>
           <button
             disabled={isLoading}
@@ -190,10 +190,10 @@ function App() {
             <img src={loadingGif} alt="" />
           </p>
         )}
-        <div className="listContent">
+        <div className="contentBox">
           {!errMsg &&
             (!isLoading ? (
-              <List data={isFilter ? filteredData : data}></List>
+              <List data={isOnlyQsl ? qlsedData : data}></List>
             ) : (
               <></>
             ))}
@@ -203,7 +203,15 @@ function App() {
         Made widh ❤️ by{" "}
         <a href="https://kanokano.cn" target="blank">
           MiniKano
-        </a>
+        </a>{" "}
+        &lt;
+        <a
+          href="https://github.com/kanoqwq/lotw-list-frontpage-demo"
+          target="blank"
+        >
+          Source Code
+        </a>{" "}
+        /&gt;
       </footer>
     </div>
   );

@@ -16,7 +16,7 @@ export default function Leaderboard(props) {
   return (
     <div
       onClick={props.onClick}
-      className={`${classes.modal}${isShow ? " " + classes.show : ""}`}
+      className={`modal${isShow ? " show": ""}`}
     >
       <div className={classes.header}>
         <h3>Leaderboard</h3>

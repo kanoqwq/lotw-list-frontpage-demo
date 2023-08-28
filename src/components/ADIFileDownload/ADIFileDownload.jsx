@@ -74,10 +74,7 @@ export default function ADIFileDownload(props) {
     }
   };
   return (
-    <div
-      onClick={props.onClick}
-      className={`${classes.modal}${isShow ? " " + classes.show : ""}`}
-    >
+    <div onClick={props.onClick} className={`modal${isShow ? " show" : ""}`}>
       <div className={classes.header}>
         <h3>Download ADIF</h3>
         <button className="btn" onClick={props.onClose}>
@@ -90,7 +87,7 @@ export default function ADIFileDownload(props) {
           <label>
             QSLs date start:{" "}
             <input
-              className={classes.datePicker}
+              className={"datePicker"}
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
