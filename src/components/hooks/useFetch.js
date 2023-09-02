@@ -48,7 +48,7 @@ const useFetch = () => {
                 let count = 0
                 let qslData = [];
                 resData.data.forEach((item) => {
-                    if (item.QSL !== "") {
+                    if (item.QSL !== "NO") {
                         if (QSLCount[item.worked] === undefined) {
                             QSLCount[item.worked] = 1
                         } else {

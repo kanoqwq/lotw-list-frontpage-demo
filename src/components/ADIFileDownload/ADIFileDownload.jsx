@@ -25,6 +25,7 @@ export default function ADIFileDownload(props) {
           let queryString = new URLSearchParams({
             qso_query: 1,
             qso_withown: "yes",
+            qso_qsorxsince: date,
             qso_qslsince: date,
             qso_owncall: "",
             qso_qsldetail: isIncludeQsl ? "yes" : "",
