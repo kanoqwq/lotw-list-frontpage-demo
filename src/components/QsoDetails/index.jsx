@@ -64,6 +64,16 @@ export default function QsoDetails(props) {
           Band: <span className={classes.content}>{info.band}</span>
         </p>
       )}
+      {info.tx && (
+        <p>
+          TX: <span className={classes.content}>{info.tx} MHz</span>
+        </p>
+      )}
+       {info.rx && (
+        <p>
+          RX: <span className={classes.content}>{info.rx} MHz</span>
+        </p>
+      )}
       <p>
         IS QSL:{" "}
         <span className={classes.content}>
