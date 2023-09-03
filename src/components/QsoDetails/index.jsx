@@ -64,9 +64,9 @@ export default function QsoDetails(props) {
           Band: <span className={classes.content}>{info.band}</span>
         </p>
       )}
-      {info.tx && (
+      {info.freq && (
         <p>
-          TX: <span className={classes.content}>{info.tx} MHz</span>
+          TX: <span className={classes.content}>{info.freq} MHz</span>
         </p>
       )}
        {info.rx && (
