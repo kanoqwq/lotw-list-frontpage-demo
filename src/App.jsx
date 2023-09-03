@@ -32,15 +32,14 @@ function App() {
     getData({
       // modify there
       url: configs.apiBaseURL + "/lotw",
-    }).then(() => {
-      fetchVuccData({
-        // modify there
-        url: configs.apiBaseURL + "/lotw/vuccaward",
-      });
+    });
+    fetchVuccData({
+      // modify there
+      url: configs.apiBaseURL + "/lotw/vuccaward",
     });
   }, [getData, fetchVuccData]);
 
-  const getDataHandler = throttleAsync((e) => {
+  const getDataHandler = async (e) => {
     if (!isLoading) {
       // modify there
       let url = configs.apiBaseURL + "/lotw";
@@ -50,18 +49,17 @@ function App() {
         url += "?cache=no-cache";
         url2 += "?cache=no-cache";
       }
-      return getData({
-        url,
-      }).then(() => {
-        fetchVuccData({
-          // modify there
-          url: url2,
-        });
+      getData({
+        url, 
+      });
+      fetchVuccData({
+        // modify there
+        url: url2,
       });
     } else {
       return new Promise(() => {});
     }
-  });
+  };
 
   const getQSLHandler = () => {
     setisOnlyQsl(!isOnlyQsl);

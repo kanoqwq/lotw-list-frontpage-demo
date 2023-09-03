@@ -12,7 +12,6 @@ const useFetch = () => {
     // 组件初始化时候需要加载数据：
     const fetchVuccData = useCallback(async (reqObj) => {
         try {
-            setIsLoading(true);
             setErrMsg(null);
             let res = await fetch(reqObj.url, {
                 method: reqObj.method || 'get',
@@ -28,9 +27,7 @@ const useFetch = () => {
         } catch (err) {
             setErrMsg(err.message);
             console.log(err.message);
-        } finally {
-            setIsLoading(false);
-        }
+        } 
     }, [])
     const dataAction = useCallback(async (reqObj) => {
         try {
