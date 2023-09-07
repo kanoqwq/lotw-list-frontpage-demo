@@ -2,7 +2,6 @@ import { useState, useCallback } from "react";
 //自定义钩子函数
 const useFetch = () => {
     const [data, setData] = useState([]);
-    const [mostQslCallSign, setMostQslCallSign] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [qslCount, setQSLCount] = useState(0)
     const [vuccData, setVuccData] = useState({})
@@ -40,22 +39,15 @@ const useFetch = () => {
             });
             if (res.ok) {
                 let resData = await res.json();
-                let QSLCount = {}
                 setData(resData.data);
                 let count = 0
                 let qslData = [];
                 resData.data.forEach((item) => {
                     if (item.QSL !== "NO") {
-                        if (QSLCount[item.worked] === undefined) {
-                            QSLCount[item.worked] = 1
-                        } else {
-                            QSLCount[item.worked] += 1
-                        }
                         count++
                         qslData.push(item)
                     }
                 });
-                setMostQslCallSign(QSLCount)
                 setQlsedData(qslData)
                 setQSLCount(count);
             } else {
@@ -78,7 +70,6 @@ const useFetch = () => {
         isLoading,
         errMsg,
         qslCount,
-        mostQslCallSign,
         fetchVuccData
     }
 }

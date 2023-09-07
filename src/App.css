@@ -149,6 +149,7 @@ h2 {
     border-radius: 8px;
     padding: 20px;
     max-width: 500px;
+    max-height: 90%;
     opacity: 0;
     width: 0;
     transition: all .4s;

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import List from "./components/List/List";
 import ListContext from "./store/studentContext";
 import useFetch from "./components/hooks/useFetch";
-import { throttleAsync } from "./tools/throttleAsync";
 import configs from "./configs/config";
 import loadingGif from "./assets/images/loading.gif";
 import Backdrop from "./components/UI/Backdrop/Backdrop";
@@ -19,7 +18,6 @@ function App() {
     errMsg,
     qlsedData,
     qslCount,
-    mostQslCallSign,
     dataAction: getData,
   } = useFetch();
   const [isOnlyQsl, setisOnlyQsl] = useState(false);
@@ -50,7 +48,7 @@ function App() {
         url2 += "?cache=no-cache";
       }
       getData({
-        url, 
+        url,
       });
       fetchVuccData({
         // modify there
@@ -127,7 +125,7 @@ function App() {
           <Leaderboard
             onClose={() => setIsShowLeaderboard(false)}
             onClick={(e) => e.stopPropagation()}
-            callsignCount={mostQslCallSign}
+            data={data}
           ></Leaderboard>
         </Backdrop>
       )}

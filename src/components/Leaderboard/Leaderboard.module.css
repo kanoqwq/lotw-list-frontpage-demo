@@ -10,7 +10,12 @@
     grid-auto-rows: auto;
     position: relative;
     overflow: auto;
-    max-height: 500px;
+}
+
+.content {
+    position: relative;
+    overflow: auto;
+    max-height: 500px
 }
 
 .item {
@@ -29,16 +34,41 @@ h3 {
     font-size: 26px;
 }
 
+h4 {
+    margin: 0;
+    color: #333;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ccc;
+}
 @media (max-width:680px) {
     .leaderboard {
         grid-template-columns: 33% 33% 33%;
-
     }
 }
 
 @media (max-width:420px) {
     .leaderboard {
         grid-template-columns: 50% 50%;
-
     }
+}
+
+/* @media (max-height:620px) {
+    .content {
+        max-height: 400px
+    }
+    
+} */
+
+@media (max-height:620px) {
+    .content {
+        max-height: 400px
+    }
+
+}
+
+@media (max-height:520px) {
+    .content {
+        max-height: 200px
+    }
+
 }
