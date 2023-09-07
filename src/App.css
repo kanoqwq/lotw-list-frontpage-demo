@@ -181,6 +181,16 @@ h2 {
     border: 2px solid #259DD9 !important;
 }
 
+@media (min-width:1200px) {
+    .App {
+        width: 1200px !important;
+    }
+    .listContent {
+        grid-template-columns:  33% 33% 33%;
+
+    }
+}
+
 @media (min-width:750px) {
     .App {
         width: 750px;

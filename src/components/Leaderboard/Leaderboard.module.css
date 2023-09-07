@@ -52,13 +52,6 @@ h4 {
     }
 }
 
-/* @media (max-height:620px) {
-    .content {
-        max-height: 400px
-    }
-    
-} */
-
 @media (max-height:620px) {
     .content {
         max-height: 400px
