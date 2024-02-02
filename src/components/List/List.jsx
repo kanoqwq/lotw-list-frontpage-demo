@@ -1,20 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Item from "../Item/Item";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import QsoDetails from "../QsoDetails";
 import classes from "./List.module.css";
 import { useEffect } from "react";
+import GlobalContext from "../GlobalContext";
+let endIndex = 100;
 export default function List({ data }) {
-  const [filteredData, setFilteredData] = useState([...data]);
+  const [filteredData, setFilteredData] = useState([]);
   const [isShow, setIsSHow] = useState(false);
   const [currentItem, setCurrentItem] = useState(false);
   const [searchCallSign, setSearchCallSign] = useState("");
   const [searchDateStart, setSearchDateStart] = useState("");
   const [searchDateEnd, setSearchDateEnd] = useState("");
+  const { isScrollToBottom, toggleIsScrollToBottom } =
+    useContext(GlobalContext);
 
-  // console.log(data);
   useEffect(() => {
-    setFilteredData(data);
+    console.log(111);
+
+    if (isScrollToBottom) {
+      pageDown();
+    }
+  }, [isScrollToBottom]);
+
+  const pageDown = () => {
+    if (endIndex === data.length) {
+      return;
+    }
+    endIndex = endIndex + 100 >= data.length ? data.length : endIndex + 100;
+    setFilteredData(data.slice(0, endIndex));
+  };
+
+  useEffect(() => {
+    setFilteredData(data.slice(0, 100));
   }, [data]);
 
   const showDetailHandler = (item) => {
