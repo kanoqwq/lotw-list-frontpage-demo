@@ -10,6 +10,7 @@ export default function List({ data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [isShow, setIsSHow] = useState(false);
   const [currentItem, setCurrentItem] = useState(false);
+  const [isFiltered, setIsFiltered] = useState(false);
   const [searchCallSign, setSearchCallSign] = useState("");
   const [searchDateStart, setSearchDateStart] = useState("");
   const [searchDateEnd, setSearchDateEnd] = useState("");
@@ -17,9 +18,7 @@ export default function List({ data }) {
     useContext(GlobalContext);
 
   useEffect(() => {
-    console.log(111);
-
-    if (isScrollToBottom) {
+    if (isScrollToBottom && !isFiltered) {
       pageDown();
     }
   }, [isScrollToBottom]);
@@ -68,12 +67,16 @@ export default function List({ data }) {
 
   const searchHandler = () => {
     if (!searchCallSign && !searchDateStart && !searchDateEnd) {
-      setFilteredData(data);
+      setFilteredData(data.slice(0, endIndex));
+      setIsFiltered(false);
     } else if (searchCallSign && !searchDateStart && !searchDateEnd) {
+      setIsFiltered(true);
       filterByCallsign(data);
     } else if (!searchCallSign && searchDateStart && searchDateEnd) {
+      setIsFiltered(true);
       filterByDate(data);
     } else if (searchCallSign && searchDateStart && searchDateEnd) {
+      setIsFiltered(true);
       filterByDate(
         data.filter(
           (item) => item.worked.indexOf(searchCallSign.toUpperCase()) !== -1
