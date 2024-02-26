@@ -4,7 +4,7 @@ import Backdrop from "../UI/Backdrop/Backdrop";
 import QsoDetails from "../QsoDetails";
 import classes from "./List.module.css";
 import { useEffect } from "react";
-import GlobalContext from "../GlobalContext";
+// import GlobalContext from "../GlobalContext";
 let endIndex = 100;
 export default function List({ data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -14,14 +14,14 @@ export default function List({ data }) {
   const [searchCallSign, setSearchCallSign] = useState("");
   const [searchDateStart, setSearchDateStart] = useState("");
   const [searchDateEnd, setSearchDateEnd] = useState("");
-  const { isScrollToBottom, toggleIsScrollToBottom } =
-    useContext(GlobalContext);
+  // const { isScrollToBottom, toggleIsScrollToBottom } =
+  //   useContext(GlobalContext);
 
-  useEffect(() => {
-    if (isScrollToBottom && !isFiltered) {
-      pageDown();
-    }
-  }, [isScrollToBottom]);
+  // useEffect(() => {
+  //   if (isScrollToBottom && !isFiltered) {
+  //     pageDown();
+  //   }
+  // }, [isScrollToBottom]);
 
   const pageDown = () => {
     if (endIndex === data.length) {
@@ -145,6 +145,11 @@ export default function List({ data }) {
         ) : (
           <></>
         )}
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <button onClick={pageDown} className="btn" style={{ width: "80%", opacity: ".7" }}>
+          More...
+        </button>
       </div>
     </>
   );
