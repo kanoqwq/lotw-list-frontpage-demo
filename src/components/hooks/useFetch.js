@@ -24,7 +24,6 @@ const useFetch = () => {
                 throw new Error("Load failed");
             }
         } catch (err) {
-            setErrMsg(err.message);
             console.log(err.message);
         } 
     }, [])
