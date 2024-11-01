@@ -1,15 +1,15 @@
 .modal {
-    position: relative;
+    position: absolute;
     overflow: hidden;
     max-width: 800px;
-    /* max-height: 500px; */
     background-color: #ffffff95;
     backdrop-filter: blur(11px);
     border-radius: 8px;
     padding: 20px;
     opacity: 0;
     width: 0;
-    transition: all .4s;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    padding-bottom: 40px;
 }
 
 .show {
@@ -29,6 +29,15 @@
 
 .content {
     color: peru;
+    position: relative;
+}
+
+.flexbox {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    margin-bottom: 10px;
 }
 
 .loading {
@@ -42,8 +51,22 @@
     width: 200px;
 }
 
-.close {
+.options {
     position: absolute;
     right: 8px;
     bottom: 8px;
+}
+
+.content img,
+.flexbox img {
+    width: 100%;
+    /* aspect-ratio: auto; */
+}
+
+.mask {
+    position: absolute;
+}
+
+.mask span {
+    padding-right: 4px;
 }

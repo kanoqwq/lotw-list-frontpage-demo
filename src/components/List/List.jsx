@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import Item from "../Item/Item";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import QsoDetails from "../QsoDetails";
+import DownloadQSLCard from "../QsoDetails/DownloadQSLCard";
 import classes from "./List.module.css";
 import { useEffect } from "react";
 // import GlobalContext from "../GlobalContext";
@@ -164,7 +165,26 @@ export default function List({ data }) {
     );
     setSearchDataTemp(tempData);
     setFilteredData(tempData.slice(startIndex, startIndex + endIndex));
+
   };
+
+
+  //show QSL Card Export Component
+  const [isShowQSLExport, setIsShowQSLExport] = useState(false)
+
+  const showExportCard = (e) => {
+    e.stopPropagation()
+    hideDetailsHandler()
+    setIsShowQSLExport(true)
+  }
+
+  
+  const hideDownloadQSLCardHandler = (e) => {
+    e.stopPropagation()
+    setIsShowQSLExport(false)
+    setIsSHow(true)
+  }
+
 
   return (
     <>
@@ -230,17 +250,28 @@ export default function List({ data }) {
         ) : (
           <h4 style={{ textAlign: "center" }}>No data</h4>
         )}
-        {isShow ? (
-          <Backdrop className="flex-center" onClick={hideDetailsHandler}>
+        {isShow && !isShowQSLExport ? (
+          <Backdrop className="flex-center flex-column" onClick={hideDetailsHandler}>
             <QsoDetails
               qsoDetail={currentItem}
               onClick={(e) => e.stopPropagation()}
               onClose={() => setIsSHow(false)}
-            ></QsoDetails>
+            >
+              <button className="btn" onClick={showExportCard}>Export QSL Card</button>
+            </QsoDetails>
+
           </Backdrop>
-        ) : (
+        ) :
           <></>
-        )}
+        }
+        {
+          !isShow && isShowQSLExport ?
+            <Backdrop className="flex-center flex-column">
+              <DownloadQSLCard qsoDetail={currentItem}  onClose={hideDownloadQSLCardHandler}/>
+            </Backdrop>
+            :
+            <></>
+        }
       </div>
       {endIndex >= data.length || endIndex >= searchDataTemp.length ? (
         <></>

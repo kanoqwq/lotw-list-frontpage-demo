@@ -126,6 +126,14 @@ h2 {
     align-items: center;
 }
 
+.felx-1 {
+    flex: 1;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -152,7 +160,7 @@ h2 {
     max-height: 90%;
     opacity: 0;
     width: 0;
-    transition: all .4s;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     background-color: #ffffff95;
     backdrop-filter: blur(11px);
 }
@@ -185,8 +193,9 @@ h2 {
     .App {
         width: 1200px !important;
     }
+
     .listContent {
-        grid-template-columns:  33% 33% 33%;
+        grid-template-columns: 33% 33% 33%;
 
     }
 }

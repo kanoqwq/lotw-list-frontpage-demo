@@ -3,7 +3,7 @@ import classes from "./QsoDetails.module.css";
 import watermark from "../../assets/images/wartermark.png";
 export default function QsoDetails(props) {
   const info = props.qsoDetail;
-  console.log(info);
+  console.log(props);
 
   const [modalShow, setModalShow] = useState(false);
   useEffect(() => {
@@ -12,9 +12,8 @@ export default function QsoDetails(props) {
   return (
     <div
       style={{
-        backgroundImage: `${
-          info.QSL === "YES" ? "url(" + watermark + ")" : "none"
-        }`,
+        backgroundImage: `${info.QSL === "YES" ? "url(" + watermark + ")" : "none"
+          }`,
         backgroundSize: "340px",
         backgroundPosition: "right top",
         backgroundRepeat: "no-repeat",
@@ -69,7 +68,7 @@ export default function QsoDetails(props) {
           TX: <span className={classes.content}>{info.freq} MHz</span>
         </p>
       )}
-       {info.rx && (
+      {info.rx && (
         <p>
           RX: <span className={classes.content}>{info.rx} MHz</span>
         </p>
@@ -84,9 +83,13 @@ export default function QsoDetails(props) {
         {info.QSRecordId && info.QSL !== "" ? "QSL" : "QSO"} Date:
         <span className={classes.content}> {info.datetime}</span>
       </p>
-      <button onClick={props.onClose} className={"btn " + classes.close}>
-        Close
-      </button>
+      <div className={classes.options}>
+        {props.children}
+        <button onClick={props.onClose} className="btn">
+          Close
+        </button>
+      </div>
+
     </div>
   );
 }

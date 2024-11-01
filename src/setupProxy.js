@@ -5,7 +5,7 @@ module.exports = (app) => {
     app.use(createProxyMiddleware(
         '/lotw-api', {
         // Modify your api server proxy there
-        target: 'http://localhost:4545',
+        target: 'https://api.kanokano.cn/lotw-api/',
         changeOrigin: true,
         pathRewrite: { '^/lotw-api': '' }
     }
