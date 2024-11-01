@@ -11,7 +11,7 @@ import QSL_2 from '../../assets/images/QSL-CARD-BI3AQ-FRONT-VER2.0-2.webp'
 
 const fontInfo = {
   color: 'black',
-  font: "34px bold serif"
+  font: "42px bold serif"
 }
 
 export default function DownloadQSLCard(props) {
@@ -51,7 +51,7 @@ export default function DownloadQSLCard(props) {
       let width = boxRef.current.getBoundingClientRect().width
       if (qslInfo) {
         qslInfo.drawImage({ width: width ? (width - 40 + 'px') : '800px' })
-        qslInfo.drawWatermark({ pos: { x: 750, y: 250 }, height: 1000, width: 1000, imgSrc: watermark })
+        qslInfo.drawWatermark({ pos: { x: 750, y: 200 }, height: 1200, width: 1200, imgSrc: watermark })
         setValue()
       }
     }

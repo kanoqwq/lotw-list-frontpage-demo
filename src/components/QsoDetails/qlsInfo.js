@@ -14,61 +14,61 @@ export function QSLInfo({ canvasId, imgSrc, fontInfo }) {
 
 
     this.datePos = {
-        x: 180, y: 560
+        x: 200, y: 630
     }
     this.timePos = {
-        x: 510, y: 594
+        x: 560, y: 665
     }
     this.freqPos = {
-        x: 934, y: 560
+        x: 1030, y: 630
     }
     this.modePos = {
-        x: 1180, y: 560
+        x: 1310, y: 630
     }
     this.RSTPos = {
-        x: 1380, y: 560
+        x: 1540, y: 630
     }
     this.TRXPos = {
-        x: 120, y: 800
+        x: 120, y: 900
     }
     this.powerPos = {
-        x: 340, y: 800
+        x: 380, y: 900
     }
     this.antPos = {
-        x: 520, y: 800
+        x: 580, y: 900
     }
     this.pseCardPos = {
-        x: 695, y: 664
+        x: 780, y: 750
     }
     this.tnxCardPos = {
-        x: 695, y: 750
+        x: 780, y: 850
     }
     this.commentPos = {
-        x: 1120, y: 700
+        x: 1245, y: 780
     }
     this.gridPos = {
-        x: 180, y: 986
+        x: 185, y: 1108
     }
     this.addrPos = {
-        x: 180, y: 928
+        x: 185, y: 1042
     }
     this.CQPos = {
-        x: 1490, y: 346
+        x: 1670, y: 386
     }
     this.ITUPos = {
-        x: 1490, y: 390
+        x: 1670, y: 440
     }
     this.QSOPos = {
-        x: 645, y: 390
+        x: 720, y: 440
     }
     this.SWLPos = {
-        x: 865, y: 390
+        x: 970, y: 440
     }
     this.OPPos = {
-        x: 1260, y: 1005
+        x: 1410, y: 1130
     }
     this.callsignPos = {
-        x: 1000, y: 310, font: "34px bold serif"
+        x: 1100, y: 350
     }
 
 
