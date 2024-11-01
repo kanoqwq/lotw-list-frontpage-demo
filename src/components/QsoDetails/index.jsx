@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./QsoDetails.module.css";
-import watermark from "../../assets/images/wartermark.png";
+import watermark from "../../assets/images/wartermark.webp";
 export default function QsoDetails(props) {
   const info = props.qsoDetail;
   console.log(props);

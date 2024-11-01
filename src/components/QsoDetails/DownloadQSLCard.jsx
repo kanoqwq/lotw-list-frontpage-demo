@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import classes from "./QsoDetails.module.css";
 import { QSLInfo } from "./qlsInfo";
-import img from '../../assets/images/QSL_CARD_BI3AQ_BACK_CURRENT.png'
-import watermark from '../../assets/images/wartermark.png'
-import QSL_1 from '../../assets/images/QSL-CARD-BI3AQ-FRONT-VER2.0.png'
-import QSL_2 from '../../assets/images/QSL-CARD-BI3AQ-FRONT-VER2.0-2.png'
+import img from '../../assets/images/QSL_CARD_BI3AQ_BACK_CURRENT.webp'
+import watermark from '../../assets/images/wartermark.webp'
+import QSL_1 from '../../assets/images/QSL-CARD-BI3AQ-FRONT-VER2.0.webp'
+import QSL_2 from '../../assets/images/QSL-CARD-BI3AQ-FRONT-VER2.0-2.webp'
 /**
  * export QSL CARD
 */
