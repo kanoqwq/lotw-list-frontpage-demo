@@ -5,6 +5,7 @@ import img from '../../assets/images/QSL_CARD_BI3AQ_BACK_CURRENT.webp'
 import watermark from '../../assets/images/wartermark.webp'
 import QSL_1 from '../../assets/images/QSL-CARD-BI3AQ-FRONT-VER2.0.webp'
 import QSL_2 from '../../assets/images/QSL-CARD-BI3AQ-FRONT-VER2.0-2.webp'
+import loading from '../../assets/images/loading2.gif'
 /**
  * export QSL CARD
 */
@@ -16,10 +17,10 @@ const fontInfo = {
 
 export default function DownloadQSLCard(props) {
   const info = props.qsoDetail;
-  console.log(info);
 
   const [modalShow, setModalShow] = useState(false);
   const [qslInfo, setQslInfo] = useState(null);
+  const [canvasIsLoaded, setCanvasIsLoaded] = useState(false);
   const boxRef = useRef()
 
   function canvasPrepare() {
@@ -37,10 +38,11 @@ export default function DownloadQSLCard(props) {
         //等待动画
         setTimeout(() => {
           onResize()
+          setCanvasIsLoaded(true)
         }, 500);
       }
     }
-  }, [qslInfo, boxRef])
+  }, [qslInfo, boxRef, setCanvasIsLoaded])
 
   useEffect(() => {
     setModalShow(true);
@@ -107,7 +109,8 @@ export default function DownloadQSLCard(props) {
         <span><i>(LoTW does not spport RST report, default 59/+0)</i></span>
       </div>
       <div className={classes.flexbox} style={{ padding: '10px 0', position: 'relative' }}>
-        <canvas id="myCanvas" width="auto" height="auto" >浏览器不支持canvas</canvas>
+        <img src={loading} alt="" style={{ display: canvasIsLoaded ? 'none' : 'block' }} />
+        <canvas id="myCanvas" width="auto" height="auto" style={{ display: !canvasIsLoaded ? 'none' : 'block' }}>浏览器不支持canvas</canvas>
         <img src={QSL_2} alt="" />
         <img src={QSL_1} alt="" />
       </div>
